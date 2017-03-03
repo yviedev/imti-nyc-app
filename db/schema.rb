@@ -10,10 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228000250) do
+ActiveRecord::Schema.define(version: 20170303001447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip_code"
+    t.string   "phone_number"
+    t.boolean  "payment_status"
+    t.boolean  "background_check"
+    t.string   "application_status"
+    t.string   "resume"
+    t.string   "health_form"
+    t.text     "personal_essay"
+    t.string   "toefl_score"
+    t.string   "name_of_spouse"
+    t.string   "birth_place"
+    t.datetime "birth_date"
+    t.string   "country_of_citizenship"
+    t.string   "occupation"
+    t.string   "ages_of_children"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.integer  "application_id"
+    t.string   "attachment"
+    t.string   "type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.integer  "application_id"
+    t.string   "school"
+    t.string   "location"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "degree"
+    t.datetime "degree_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "montessori_trainings", force: :cascade do |t|
+    t.integer  "application_id"
+    t.string   "name"
+    t.string   "location"
+    t.string   "diploma"
+    t.string   "degree"
+    t.datetime "degree_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +93,16 @@ ActiveRecord::Schema.define(version: 20170228000250) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "work_experiences", force: :cascade do |t|
+    t.integer  "application_id"
+    t.string   "employer"
+    t.string   "occupation"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end
