@@ -4,10 +4,12 @@ class ApplicationsController < ApplicationController
   end
 
   def create
+    #binding.pry
+    @application = Application.new(application_params)
     if current_user.update(user_params)
-      @application = Application.new(application_params)
       if @application.save
-        redirect_to new_application_path
+        flash[:success] = "Application saved."
+        redirect_to edit_application_path(@application.id)
       else
         flash[:danger] = @application.errors.full_messages
         render :new
@@ -18,6 +20,10 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def edit
+    @application = Application.find(params[:id])
+  end
+
   private
 
   def user_params
@@ -25,7 +31,7 @@ class ApplicationsController < ApplicationController
   end
 
   def application_params
-    params.require(:application).permit(:phone_number, :street, :city, :state, :zip_code, :country, :birth_place, :birth_date, :country_of_citizenship, :occupation, :name_of_spouse, :ages_of_children)
+    params.require(:application).permit(:phone_number, :street, :city, :state, :zip_code, :country, :birth_place, :birth_date, :country_of_citizenship, :occupation, :name_of_spouse, :ages_of_children).merge(user_id: current_user.id)
   end
 
 end
