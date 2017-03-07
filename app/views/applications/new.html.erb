@@ -4,11 +4,11 @@ application page
 
 <%= form_for(@application) do |f| %>
   <%= label_tag :last_name %>
-  <%= text_field_tag :last_name, current_user.last_name %>
+  <%= text_field_tag :'user[last_name]', current_user.last_name %>
   <%= label_tag :first_name %>
-  <%= text_field_tag :first_name, current_user.first_name %>
+  <%= text_field_tag :'user[first_name]', current_user.first_name %>
   <%= label_tag :middle_initial %>
-  <%= text_field_tag :middle_initial, current_user.middle_initial %>
+  <%= text_field_tag :'user[middle_initial]', current_user.middle_initial %>
   <%= f.label :phone_number %>
   <%= f.text_field :phone_number %>
   <%= f.label :street %>
@@ -34,6 +34,7 @@ application page
   <%= f.label :ages_of_children %>
   <%= f.text_field :ages_of_children %>
   <%= label_tag :email %>
-  <%= text_field_tag :email, current_user.email, disabled: true %>
+  <%= text_field_tag :'user[email]', current_user.email, disabled: true %>
+  <%= f.submit :save %>
 <% end %>
 
