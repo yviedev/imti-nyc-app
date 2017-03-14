@@ -1,0 +1,11 @@
+<p>SECTION B: SUPPORTING DATA </p>
+
+<% @montessori_trainings.each do |montessori_training| %>
+  <p>Name: <%= montessori_training.name %>
+  Location: <%= montessori_training.location %>
+  Diploma: <%= montessori_training.diploma %>
+  Degree: <%= montessori_training.degree %>
+  Degree date: <%= montessori_training.degree_date %><p>
+<% end %>
+
+<a href="/applications/<%= @application.id %>/montessori_trainings/new">Add new Montessori training</a>
