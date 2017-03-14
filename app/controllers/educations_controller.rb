@@ -1,18 +1,24 @@
 class EducationsController < ApplicationController
+  def index
+    @application = Application.find(params[:application_id])
+    @educations = @application.educations
+  end
+
   def new
     @application = Application.find(params[:application_id])
     @education = Education.new
   end
 
   def create
+    @application = Application.find(params[:application_id])
     @education = Education.new(education_params)
     if @education.save
       flash[:success] = "Education saved."
-      redirect_to new_application_education_path(@education.id)
+      redirect_to application_educations_path(@application.id)
     else
       flash[:danger] = @education.errors.full_messages
       render :new
-    end 
+    end
   end
 
   def edit
@@ -33,7 +39,6 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:school, :location, :start_date, :end_date, :degree, :degree_date).merge(application_id: params[:application_id]) 
+    params.require(:education).permit(:school, :location, :start_date, :end_date, :degree, :degree_date).merge(application_id: params[:application_id])
   end
-end 
-
+end
