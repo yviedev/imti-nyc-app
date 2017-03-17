@@ -14,7 +14,7 @@ class MontessoriTrainingsController < ApplicationController
     @montessori_training = MontessoriTraining.new(montessori_training_params)
     if @montessori_training.save
       flash[:success] = "Montessori training saved."
-      redirect_to application_montessori_trainings_path(@application.id)
+      redirect_to new_application_work_experience_path(@application.id)
     else
       flash[:danger] = @montessori_training.errors.full_messages
       render :new

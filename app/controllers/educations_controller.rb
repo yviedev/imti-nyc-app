@@ -14,7 +14,7 @@ class EducationsController < ApplicationController
     @education = Education.new(education_params)
     if @education.save
       flash[:success] = "Education saved."
-      redirect_to application_educations_path(@application.id)
+      redirect_to new_application_montessori_training_path(@application.id)
     else
       flash[:danger] = @education.errors.full_messages
       render :new

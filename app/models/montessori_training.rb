@@ -1,4 +1,4 @@
 class MontessoriTraining < ApplicationRecord
-  validates :name, :location, :diploma, :degree, :degree_date, presence: true
+  # validates :name, :location, :diploma, :degree, :degree_date, presence: true
   belongs_to :application
 end
