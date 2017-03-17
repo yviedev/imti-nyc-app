@@ -8,7 +8,7 @@ class ApplicationsController < ApplicationController
     if current_user.update(user_params)
       if @application.save
         flash[:success] = "Application saved."
-        redirect_to edit_application_path(@application.id)
+        redirect_to  new_application_education_path(@application.id)
       else
         flash[:danger] = @application.errors.full_messages
         render :new
