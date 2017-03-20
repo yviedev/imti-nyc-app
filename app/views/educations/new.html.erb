@@ -2,5 +2,18 @@
 
 <%= form_for [@application, @education] do |f| %>
 <%= f.label :school %>
-<%= f.text_field :school  %>
+<%= f.text_field :school %>
+<%= f.label :location %>
+<%= f.text_field :location %>
+<%= f.label :start_date %>
+<%= f.text_field :start_date %>
+<%= f.label :end_date %>
+<%= f.text_field :end_date %>
+<%= f.label :degree %>
+<%= f.text_field :degree %>
+<%= f.label :degree_date %>
+<%= f.text_field :degree_date %>
+<%= f.submit :next %>
 <% end %>
+
+

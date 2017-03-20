@@ -1,0 +1,13 @@
+<p>SECTION B: SUPPORTING DATA </p>
+
+<%= form_for [@application, @work_experience] do |f| %>
+<%= f.label :employer %>
+<%= f.text_field :employer %>
+<%= f.label :occupation %>
+<%= f.text_field :occupation %>
+<%= f.label :start_date %>
+<%= f.text_field :start_date %>
+<%= f.label :end_date %>
+<%= f.text_field :end_date %>
+<%= f.submit :next %>
+<% end %>
