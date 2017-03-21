@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170321003544) do
     t.datetime "degree_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.boolean  "experience"
   end
 
   create_table "references", force: :cascade do |t|

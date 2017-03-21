@@ -39,6 +39,6 @@ class MontessoriTrainingsController < ApplicationController
   private
 
   def montessori_training_params
-    params.require(:montessori_training).permit(:name, :location, :diploma, :degree, :degree_date).merge(application_id: params[:application_id])
+    params.require(:montessori_training).permit(:experience, :name, :location, :diploma, :degree, :degree_date).merge(application_id: params[:application_id])
   end
 end
