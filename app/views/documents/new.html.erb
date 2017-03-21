@@ -1,0 +1,12 @@
+<p>SECTION E: DOCUMENTS - Please attach your transcripts, recommendations and references below.</p>
+<p>Click the + button to add additional documents.</p>
+
+<%= form_for [@application, @document] do |f| %>
+<p><%= f.label :attachment %></p>
+<p><%= f.text_field :attachment %></p>
+<p><%= f.label :type %></p>
+<p><%= f.text_field :type %></p>
+<p><%= f.submit :next %></p>
+<% end %>
+
+

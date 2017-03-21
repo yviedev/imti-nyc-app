@@ -19,6 +19,11 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def show
+    @application = Application.find(params[:id])
+    render :show
+  end
+
   def edit
     @application = Application.find(params[:id])
   end
