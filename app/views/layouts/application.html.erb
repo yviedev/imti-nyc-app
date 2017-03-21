@@ -18,11 +18,18 @@
     <title>International Montessori Training Institute, Atlanta, Georgia</title>
 
     <!-- Favicon  -->
-    <link rel="shortcut icon" href="assets/compass-rose-tiny.png">
+    <link rel="shortcut icon" href=<%= asset_path 'assets/img/compass-rose-tiny.png' %>>
 
     <!-- ===================== All CSS Files ===================== -->
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Style css -->
+    <%= stylesheet_link_tag 'style' %>
+
+    <!-- Responsive css -->
+    <%= stylesheet_link_tag 'css/responsive' %>
+
+    <!-- Color Changer css -->
+    <%= stylesheet_link_tag 'css/color-changer.css' %>
 
     <!--[if IE]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -52,7 +59,7 @@
                     <div class="col-sm-3 col-md-5">
                         <!--  Top Quote Area Start -->
                         <div class="top_quote hidden-sm">
-                            <p>Welcome to the International Montessori Training Institute.</p>
+                            <p>Shorter Message.</p>
                         </div>
                     </div>
                     <div class="col-sm-9 col-md-7">
@@ -82,19 +89,19 @@
                                     </button>
                                     <ul aria-labelledby="lag" class="dropdown-menu">
                                         <li>
-                                            <a href="#"><img alt="" src="assets/core-img/lan-1.jpg">English</a>
+                                            <a href="#"><img alt="" src="assets/img/core-img/lan-1.jpg">English</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img alt="" src="assets/core-img/lan-2.jpg">German</a>
+                                            <a href="#"><img alt="" src="assets/img/core-img/lan-2.jpg">German</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img alt="" src="assets/core-img/lan-3.jpg">Spanish</a>
+                                            <a href="#"><img alt="" src="assets/img/core-img/lan-3.jpg">Spanish</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img alt="" src="assets/core-img/lan-4.jpg">Bangla</a>
+                                            <a href="#"><img alt="" src="assets/img/core-img/lan-4.jpg">Bangla</a>
                                         </li>
                                         <li>
-                                            <a href="#"><img alt="" src="assets/core-img/lan-5.jpg">China</a>
+                                            <a href="#"><img alt="" src="assets/img/core-img/lan-5.jpg">China</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -113,7 +120,7 @@
                     <div class="col-sm-3 col-xs-9">
                         <!-- Logo Area -->
                         <div class="logo_area">
-                            <a href="index.html"><img src="assets/core-img/logo.png" alt=""></a>
+                            <a href="index.html"><img src="assets/img/core-img/logo.png" alt=""></a>
                         </div>
                     </div>
 
@@ -238,21 +245,21 @@
                         </div>
                         <!-- Single upcoming post -->
                         <div class="event_single_post">
-                            <img src="assets/news-img/blog-2.jpg" alt="">
+                            <img src="assets/img/news-img/blog-2.jpg" alt="">
                             <a href="">
                                 <p>As long as we live its you and me baby</p>
                             </a>
                         </div>
                         <!-- Single upcoming post -->
                         <div class="event_single_post">
-                            <img src="assets/news-img/blog-3.jpg" alt="">
+                            <img src="assets/img/news-img/blog-3.jpg" alt="">
                             <a href="">
                                 <p>As long as we live its you and me baby</p>
                             </a>
                         </div>
                         <!-- Single upcoming post -->
                         <div class="event_single_post">
-                            <img src="assets/news-img/blog-4.jpg" alt="">
+                            <img src="assets/img/news-img/blog-4.jpg" alt="">
                             <a href="">
                                 <p>As long as we live its you and me baby</p>
                             </a>
@@ -340,46 +347,10 @@
     </footer>
     <!-- ===================== Footer Area End ===================== -->
 
-</body>
-
     <!-- ===================== All jQuery Plugins ===================== -->
 
-    <!-- jQuery (necessary for all JavaScript plugins) -->
-    <script src="assets/js/jquery-2.2.4.min.js"></script>
+    <%= javascript_include_tag 'application' %>
 
-    <!-- bootstrap js -->
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- Nivoslider js -->
-    <script src="assets/js/jquery.nivoslider.js"></script>
-    <script src="assets/js/nivoslider-active.js"></script>
-
-    <!-- owl-carousel js -->
-    <script src="assets/js/owl.carousel.min.js"></script>
-
-    <!-- Ajax Contact js -->
-    <script src="assets/js/ajax-contact.js"></script>
-
-    <!-- Coundown js -->
-    <script src="assets/js/coundown-timer.js"></script>
-
-    <!-- Meanmenu js -->
-    <script src="assets/js/meanmenu.js"></script>
-
-    <!-- Magnific Popup js -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-
-    <!-- Counterup and Waypoint js -->
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/counterup.min.js"></script>
-
-    <!-- back to top js -->
-    <script src="assets/js/jquery.scrollUp.js"></script>
-
-    <!-- wow js -->
-    <script src="assets/js/wow.min.js"></script>
-
-    <!-- script js -->
-    <script src="assets/js/custom.js"></script>
+</body>
 
 </html>
