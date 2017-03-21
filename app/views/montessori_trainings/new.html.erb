@@ -1,6 +1,9 @@
-<p>SECTION B: SUPPORTING DATA </p>
+<p>SECTION C: Previous Montessori Training Experience </p>
 
 <%= form_for [@application, @montessori_training] do |f| %>
+<%= f.label :Please_check_here_if_you_had_previous_Montessori_Training_Experience %>
+<%= f.check_box :experience %>
+<!-- Moving forward with JS, if the experience check box is clicked, have the following information appear, if not allow them to move to the next section -->
 <%= f.label :name %>
 <%= f.text_field :name %>
 <%= f.label :location %>
