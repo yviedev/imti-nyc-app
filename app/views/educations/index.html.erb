@@ -1,12 +1,12 @@
 <p>SECTION B: SUPPORTING DATA </p>
 
 <% @educations.each do |education| %>
-  <p>School: <%= education.school %>
-  Location: <%= education.location %>
-  Start Date: <%= education.start_date %>
-  End Date: <%= education.end_date %>
-  Degree: <%= education.degree %>
-  Degree date: <%= education.degree_date %><p>
+  <p>School: <%= education.school %></p>
+  <p>Location: <%= education.location %></p>
+  <p>Start Date: <%= education.start_date %></p>
+  <p>End Date: <%= education.end_date %></p>
+  <p>Degree: <%= education.degree %></p>
+  <p>Degree date: <%= education.degree_date %></p>
 <% end %>
 
 <a href="/applications/<%= @application.id %>/educations/new">Add new education</a>
