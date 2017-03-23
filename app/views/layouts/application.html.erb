@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="description" content="AMI Association Montessori Internationale international montessori motnessori montesori montesorri teacher training Atlanta Georgia">
+    <meta name="description" content="AMI, Association Montessori Internationale, international montessori teacher training in Atlanta Georgia">
     
     <meta name="keywords" content="Montessori teacher, teacher training, Montessori teacher training, AMI, Association Montessori Internationale, Atlanta, GA, Georgia, international, institute">
     
@@ -59,25 +59,32 @@
                     <div class="col-sm-3 col-md-5">
                         <!--  Top Quote Area Start -->
                         <div class="top_quote hidden-sm">
-                            <p>Shorter Message.</p>
+                            <p>International Montessori Training Institute</p>
                         </div>
                     </div>
                     <div class="col-sm-9 col-md-7">
                         <div class="social_reg_log_area">
                             <!--  Top Social bar start -->
                             <div class="top_social_bar">
-                                <a href="https://www.facebook.com/International-Montessori-Training-Institute-144259905606348/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, 
+                                    "https://www.facebook.com/International-Montessori-Training-Institute-144259905606348/" %>
                             </div>
                             <!--  Login Register Area -->
                             <div class="login_register">
-                                <div class="login">
-                                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                                    <a href="login.html">Login</a>
-                                </div>
+                                <% if user_signed_in? %>
+                                    <div class="logout">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        <%= link_to 'Logout', "/sign_out", :method => :delete %>
+                                    </div>
+                                <% else %>
+                                    <div class="login">
+                                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                        <%= link_to 'Login', "/sign_in" %>
+                                    </div>
+                                <% end %>
                                 <div class="reg">
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    <a href="register.html">Register</a>
+                                    <%= link_to 'Register', "/sign_up" %>
                                 </div>
                             </div>
 
@@ -88,21 +95,11 @@
                                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                                     </button>
                                     <ul aria-labelledby="lag" class="dropdown-menu">
-                                        <li>
-                                            <a href="#"><img alt="" src="assets/img/core-img/lan-1.jpg">English</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img alt="" src="assets/img/core-img/lan-2.jpg">German</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img alt="" src="assets/img/core-img/lan-3.jpg">Spanish</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img alt="" src="assets/img/core-img/lan-4.jpg">Bangla</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img alt="" src="assets/img/core-img/lan-5.jpg">China</a>
-                                        </li>
+                                        <li><%= link_to (image_tag("img/core-img/lan-1.jpg") + 'English'), '#' %></li>
+                                        <li><%= link_to (image_tag("img/core-img/lan-2.jpg") + 'German'), '#' %></li>
+                                        <li><%= link_to (image_tag("img/core-img/lan-3.jpg") + 'Spanish'), '#' %></li>
+                                        <li><%= link_to (image_tag("img/core-img/lan-4.jpg") + 'Bangla'), '#' %></li>
+                                        <li><%= link_to (image_tag("img/core-img/lan-5.jpg") + 'China'), '#' %></li>
                                     </ul>
                                 </div>
                             </div>
@@ -120,7 +117,7 @@
                     <div class="col-sm-3 col-xs-9">
                         <!-- Logo Area -->
                         <div class="logo_area">
-                            <a href="index.html"><img src="assets/img/core-img/logo.png" alt=""></a>
+                            <%= link_to image_tag("img/core-img/logo.png"), "/" %>
                         </div>
                     </div>
 
@@ -130,44 +127,44 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul id="nav">
-                                        <li><%= link_to("Home", "/") %></li>
+                                        <li><%= link_to "Home", "/" %></li>
                                         <li><a href="#">Gallery<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
-                                                <li><a href="gallery-fullwidth.html">Gallery Fullwidth</a></li>
-                                                <li><a href="gallery-4-column.html">Gallery 4 Column</a></li>
-                                                <li><a href="gallery-3-column.html">Gallery 3 Column</a></li>
-                                                <li><a href="gallery-2-column.html">Gallery 2 Column</a></li>
+                                                <li><%= link_to 'Gallery Fullwidth', '#' %></li>
+                                                <li><%= link_to 'Gallery 4 Column', '#' %></li>
+                                                <li><%= link_to 'Gallery 3 Column', '#' %></li>
+                                                <li><%= link_to 'Gallery 2 Column', '#' %></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">course<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
-                                                <li><a href="course-grid.html">Course Grid</a></li>
-                                                <li><a href="course-list.html">Course List</a></li>
-                                                <li><a href="course-details.html">Course Details</a></li>
+                                                <li><%= link_to "Course Grid" '#' %></li>
+                                                <li><%= link_to "Course List" '#' %></li>
+                                                <li><%= link_to "Course Details" '#' %></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">teacher<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
-                                                <li><a href="teachers.html">Teachers</a></li>
-                                                <li><a href="teachers-details.html">Teacher Details</a></li>
+                                                <li><%= link_to "Teachers", "#" %></li>
+                                                <li><%= link_to "Teacher Details", "#" %></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Event<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
-                                                <li><a href="event-grid.html">Event Grid</a></li>
-                                                <li><a href="event-list.html">Event List</a></li>
-                                                <li><a href="event-details.html">Event Details</a></li>
+                                                <li><%= link_to "Event Grid", "#" %></li>
+                                                <li><%= link_to "Event List", "#" %></li>
+                                                <li><%= link_to "Event Details", "#" %></li>
                                             </ul>
                                         </li>
-                                        <li><%= link_to("contact", "/contact") %></li>
-                                        <li><%= link_to("about", "/about") %></li>
+                                        <li><%= link_to "Contact", "/contact" %></li>
+                                        <li><%= link_to "About", "/about" %></li>
                                     </ul>
                                 </nav>
                             </div>
                             <!-- mainmenu end -->
                             <!-- Search Button Area -->
                             <div class="search_button hidden-xs">
-                                <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <%= link_to '<i class="fa fa-search" aria-hidden="true"></i>'.html_safe, '#' %>
                             </div>
                         </div>
                     </div>
@@ -226,7 +223,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="footer_about_us wow fadeInUp" data-wow-delay="0.2s">
                         <div class="title">
-                            <h4>About EduCamp</h4>
+                            <h4>About IMTI</h4>
                             <!-- Useful Links Title -->
                             <div class="underline"></div>
                         </div>
@@ -245,24 +242,18 @@
                         </div>
                         <!-- Single upcoming post -->
                         <div class="event_single_post">
-                            <img src="assets/img/news-img/blog-2.jpg" alt="">
-                            <a href="">
-                                <p>As long as we live its you and me baby</p>
-                            </a>
+                            <%= image_tag "img/news-img/blog-2.jpg" %>
+                            <%= link_to "<p>As long as we live its you and me baby</p>".html_safe, "/"%>
                         </div>
                         <!-- Single upcoming post -->
                         <div class="event_single_post">
-                            <img src="assets/img/news-img/blog-3.jpg" alt="">
-                            <a href="">
-                                <p>As long as we live its you and me baby</p>
-                            </a>
+                            <%= image_tag "img/news-img/blog-3.jpg" %>
+                            <%= link_to "<p>As long as we live its you and me baby</p>".html_safe, "/"%>
                         </div>
                         <!-- Single upcoming post -->
                         <div class="event_single_post">
-                            <img src="assets/img/news-img/blog-4.jpg" alt="">
-                            <a href="">
-                                <p>As long as we live its you and me baby</p>
-                            </a>
+                            <%= image_tag "img/news-img/blog-4.jpg" %>
+                            <%= link_to "<p>As long as we live its you and me baby</p>".html_safe, "/"%>
                         </div>
                     </div>
                 </div>
@@ -307,17 +298,17 @@
                         <!-- Links Start -->
                         <div class="links">
                             <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                <a href="#">All Our Courses</a></p>
+                                <%= link_to "All Our Courses", "/"%></p>
                             <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                <a href="#">Event Calendar</a></p>
+                                <%= link_to "Event Calendar", "/"%></p>
                             <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                <a href="#">Customer Support</a></p>
+                                <%= link_to "Customer Support", "/"%></p>
                             <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                <a href="#">Career at EduCamp</a></p>
+                                <%= link_to "Career at EduCamp", "/"%></p>
                             <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                <a href="#">Terms &amp; Conditions</a></p>
+                                <%= link_to "Terms &amp; Conditions", "/"%></p>
                             <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                <a href="#">Community Forums</a></p>
+                                <%= link_to "Community Forums", "/"%></p>
                         </div>
                         <!-- Links End -->
                     </div>
