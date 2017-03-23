@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303005355) do
+ActiveRecord::Schema.define(version: 20170321003544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 20170303005355) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "local_schools", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "montessori_trainings", force: :cascade do |t|
     t.integer  "application_id"
     t.string   "name"
@@ -88,11 +95,12 @@ ActiveRecord::Schema.define(version: 20170303005355) do
     t.string   "unconfirmed_email"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
-    t.integer  "role_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "middle_initial"
     t.boolean  "donor"
+    t.integer  "role"
+    t.integer  "local_school_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
