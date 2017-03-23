@@ -1,44 +1,93 @@
-<h2>Sign up</h2>
+<!-- Breadcumb area start -->
+    <section class="breadcumb_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="breadcumb_section">
+                        <!-- Breadcumb page title start -->
+                        <div class="page_title">
+                            <!-- Once we have devise controllers imported into our rails app, need to add @title = "Register" -->
+                            <h3>Register</h3>
+                        </div>
+                        <!-- Breadcumb page pagination start -->
+                        <div class="page_pagination">
+                            <ul>
+                                <li><%= link_to "Home", "/" %></li>
+                                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                <!-- Once we have devise controllers imported into our rails app, need to add @title = "Register" -->
+                                <li>Register</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcumb area end -->
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <!-- Login area start -->
+    <div class="login_area section_padding_100">
+        <div class="container">
+            <div class="row">
+                <!-- Login thumb -->
+                <div class="col-xs-12 col-md-5 col-lg-6">
+                    <div class="login_thumb">
+                        <%= image_tag "img/bg-pattern/courses-bg.jpg" %>
+                        <!-- Login thumb caption -->
+                        <div class="login_thumb_caption">
+                            <h3>Register is so Easy!</h3>
+                            <p>Register &amp; start learning.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Register form area start -->
+                <div class="col-xs-12 col-md-7 col-lg-6">
+                  <div class="register_form">
+                    <h2>Sign up</h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                      <%= devise_error_messages! %>
+                      <!-- Single Register input area start -->
+                      <div class="form-group">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <%= f.email_field :email, { :autofocus => true, :placeholder => "Email" } %>
+                      </div>
+                      <!-- Single Register input area start -->
+                      <div class="form-group">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <%= f.text_field :first_name, { :placeholder => "First name" } %>
+                      </div>
+                      <!-- Single Register input area start -->
+                      <div class="form-group">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <%= f.text_field :middle_initial, { :placeholder => "Middle initial"} %>
+                      </div>
+                      <!-- Single Register input area start -->
+                      <div class="form-group">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <%= f.text_field :last_name, { :placeholder => "Last name" } %>
+                      </div>
+                      <!-- Single Register input area start -->
+                      <div class="form-group">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <%= f.password_field :password, { :autocomplete => "off", :placeholder => "Password #{@minimum_password_length ? "(#{@minimum_password_length} characters minimum)" : "" } " } %>
+                      </div>
+                      <!-- Single Register input area start -->
+                      <div class="form-group">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <%= f.password_field :password_confirmation, { :autocomplete => "off", :placeholder => "Password confirmation" } %>
+                      </div>
+                      <!-- Single Register input area start -->
+                      <div class="actions">
+                        <%= f.submit "Sign up", { :class => "btn btn-default", :id => "login_submit" } %>
+                      </div>
+                    <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name%>
-  </div>
-
-  <div class="field">
-    <%= f.label :middle_initial %><br />
-    <%= f.text_field :middle_initial%>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+                    <%= render "devise/shared/links" %>
+                  </div>
+                </div>
+                <!-- Register form area end  -->
+            </div>
+        </div>
+    </div>
+    <!-- Login area end -->

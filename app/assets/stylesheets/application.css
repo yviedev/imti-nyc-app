@@ -10,6 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require css/bootstrap.css
+ *= require css/nivoslider.css
+ *= require css/magnific-popup.css
+ *= require css/animate.css
+ *= require css/meanmenu.css
+ *= require css/font-awesome.css
+ *= require css/owl.carousel.css
+ *= require css/et-line.css
  *= require_tree .
  *= require_self
  */
