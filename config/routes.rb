@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root :to => 'pages#index'
   get "/about" => 'pages#about'
   get "/contact" => 'pages#contact'
+  get "/template" => 'pages#template'
   
   resources :applications, only: [:new, :create, :edit, :update] do
   	resources :educations, only: [:new, :create, :edit, :update] 
