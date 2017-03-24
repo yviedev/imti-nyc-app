@@ -1,8 +1,8 @@
 <% @work_experience.each do |work| %>
-  <p>Name: <%= work.employer %>
-  Location: <%= work.occupation %>
-  Diploma: <%= work.start_date %>
-  Degree: <%= work.end_date %>
+  <p>Name: <%= work.employer %></p>
+  <p>Location: <%= work.occupation %></p>
+  <p>Diploma: <%= work.start_date %></p>
+  <p>Degree: <%= work.end_date %></p>
 <% end %>
 
 <a href="/applications/<%= @application.id %>/work_experiences/new">Add new Work Experience</a>
