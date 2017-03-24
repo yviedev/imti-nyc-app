@@ -1,7 +1,7 @@
 class ReferencesController < ApplicationController
   def index
     @application = Application.find(params[:application_id])
-    @reference = @application.reference
+    @references = @application.references
   end
 
   def new
@@ -22,6 +22,7 @@ class ReferencesController < ApplicationController
   end
 
   def edit
+    @application = Application.find(params[:application_id])
     @reference = Reference.find(params[:id])
   end
 

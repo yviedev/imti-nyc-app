@@ -1,0 +1,16 @@
+<p>SECTION E: REFERENCES</p>
+<p>Click the + button to add additional documents.</p>
+
+<%= form_for [@application, @reference], :url => {:action => "edit"} do |f| %>
+<p><%= f.label :name %></p>
+<p><%= f.text_field :name %></p>
+<p><%= f.label :address %></p>
+<p><%= f.text_field :address %></p>
+<p><%= f.label :position%></p>
+<p><%= f.text_field :position%></p>
+<p><%= f.submit :save %></p>
+<% end %>
+
+<p><%= link_to 'Back to all References', "/applications/#{@application.id}/references"%>
+
+
