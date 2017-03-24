@@ -22,6 +22,7 @@ class EducationsController < ApplicationController
   end
 
   def edit
+    @application = Application.find(params[:application_id])
     @education = Education.find(params[:id])
   end
 

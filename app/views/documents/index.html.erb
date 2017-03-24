@@ -1,0 +1,18 @@
+<p>SECTION F: DOCUMENTS - Please attach your transcripts, recommendations and references below.</p>
+<p>Click the + button to add additional documents.</p>
+
+<% @documents.each do |document| %>
+  <p>Attachment url: <%= document.attachment %></p>
+  <p>Category: <%= document.category %></p>
+  <p><%= link_to 'Edit document', "/applications/#{@application.id}/documents/#{document.id}/edit"%>
+  <hr>
+<% end %>
+
+<a href="/applications/<%= @application.id %>/documents/new">Add new document</a>
+
+<h1>Other Application Sections</h1>
+<p><a href="/applications/<%= @application.id %>/educations">Education</a></p>
+<p><a href="/applications/<%= @application.id %>/montessori_trainings">Montessori Trainings</a></p>
+<p><a href="/applications/<%= @application.id %>/work_experiences">Work Experience</a></p>
+<p><a href="/applications/<%= @application.id %>/references">References</a></p>
+<p><a href="/applications/<%= @application.id %>/documents">Documents</a></p>

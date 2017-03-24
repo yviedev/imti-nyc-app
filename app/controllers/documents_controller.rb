@@ -23,6 +23,7 @@ class DocumentsController < ApplicationController
   end
 
   def edit
+    @application = Application.find(params[:application_id])
     @document = Document.find(params[:id])
   end
 
@@ -40,7 +41,7 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:attachment, :type).merge(application_id: params[:application_id])
+    params.require(:document).permit(:attachment, :category).merge(application_id: params[:application_id])
   end
 
 end
