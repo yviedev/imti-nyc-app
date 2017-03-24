@@ -1,6 +1,7 @@
 <p>SECTION F: DOCUMENTS - Please attach your transcripts, recommendations and references below.</p>
 <p>Click the + button to add additional documents.</p>
 
+<<<<<<< HEAD
   <% @references.each do |reference| %>
     <p>Name: <%= reference.name %></p>
     <p>Address: <%= reference.address %></p>
@@ -8,6 +9,17 @@
     <p><%= link_to 'Edit reference', "/applications/#{@application.id}/references/#{reference.id}/edit"%>
     <hr>
   <% end %>
+=======
+
+<% @references.each do |reference| %>
+  <p>Name: <%= reference.name %></p>
+  <p>Address: <%= reference.address %></p>
+  <p>Position: <%= reference.position %></p>
+  <p><%= link_to 'Edit reference', "/applications/#{@application.id}/references/#{reference.id}/edit"%>
+  <hr>
+<% end %>
+
+>>>>>>> 07cde9108dcbc940aea029b4a35a409f772a3f05
 
 <a href="/applications/<%= @application.id %>/references/new">Add new reference</a>
 
