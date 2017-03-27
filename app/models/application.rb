@@ -3,10 +3,10 @@ class Application < ApplicationRecord
   #           :country_of_citizenship, :occupation, presence: true
   has_many :transcripts, -> { where 'category = transcript' }, class_name: 'Document'
   has_many :recommendations, -> { where 'category = recommendation' }, class_name: 'Document'
-  has_many :resume, -> { where 'category = resume' }, class_name: 'Document'
-  has_many :personal_essay, -> { where 'category = personal essay' }, class_name: 'Document'
-  has_many :health_form, -> { where 'category = health form' }, class_name: 'Document'
-  has_many :toefl_score_report, -> { where 'category = TOEFL score report' }, class_name: 'Document'
+  has_many :resumes, -> { where 'category = resume' }, class_name: 'Document'
+  has_many :personal_essays, -> { where 'category = personal essay' }, class_name: 'Document'
+  has_many :health_forms, -> { where 'category = health form' }, class_name: 'Document'
+  has_many :toefl_score_reports, -> { where 'category = TOEFL score report' }, class_name: 'Document'
   has_many :references
   has_many :educations
   has_many :montessori_trainings
