@@ -9,7 +9,7 @@
     <p>Start Date: <%= education.pretty_date(education.start_date) %></p>
     <p>End Date: <%= education.pretty_date(education.end_date) %></p>
     <p>Degree: <%= education.degree %></p>
-    <p>Degree date: <%= education.degree_date %></p>
+    <p>Degree date: <%= education.pretty_date(education.degree_date) %></p>
     <p><%= link_to 'Edit education', "/applications/#{@application.id}/educations/#{education.id}/edit"%>
     <hr>
   <% end %>
