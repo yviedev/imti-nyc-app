@@ -14,7 +14,7 @@ class Application < ApplicationRecord
   has_many :work_experiences
   belongs_to :user
 
-  def fancy_date(date)
+  def pretty_date(date)
     if date
       date.strftime("%m/%d/%Y")
     end
