@@ -1,0 +1,9 @@
+<div class="application">
+  <h1>IMTI Applications</h1>
+
+  <% @applications.each do |application| %>
+    <p><%= application.user.last_name %>, <%= application.user.first_name %> - <%= link_to 'View application', "/applications/#{application.id}"%></p>
+  <% end %>
+</div>
+
+

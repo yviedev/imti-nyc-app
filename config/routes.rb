@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   get "/about" => 'pages#about'
   get "/contact" => 'pages#contact'
   get "/template" => 'pages#template'
-  
-  resources :applications, only: [:new, :create, :edit, :update] do
-  	resources :educations, only: [:new, :create, :edit, :update] 
+
+  resources :applications, only: [:index, :new, :show, :create, :edit, :update] do
+  	resources :educations, only: [:index, :new, :create, :edit, :update]
+  	resources :montessori_trainings, only: [:index, :new, :create, :edit, :update]
+  	resources :work_experiences, only: [:index, :new, :create, :edit, :update]
+    resources :references, only: [:index, :new, :create, :edit, :update]
+  	resources :documents, only: [:index, :new, :create, :edit, :update] 
   end
 end

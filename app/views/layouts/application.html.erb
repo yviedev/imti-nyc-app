@@ -23,6 +23,7 @@
     <!-- ===================== All CSS Files ===================== -->
 
     <!-- Style css -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'style' %>
 
     <!-- Responsive css -->
@@ -128,6 +129,7 @@
                                 <nav>
                                     <ul id="nav">
                                         <li><%= link_to "Home", "/" %></li>
+                                        <li><%= link_to "My Application", "/applications" %></li>
                                         <li><a href="#">Gallery<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
                                                 <li><%= link_to 'Gallery Fullwidth', '#' %></li>
@@ -188,9 +190,10 @@
         <!-- Search Box Area End -->
     </header>
 
-    <%= render "/shared/alerts" %>
-    <%= yield %>
-
+    <div class="render_page">
+      <%= render "/shared/alerts" %>
+      <%= yield %>
+    </div>
     <!-- ===================== Newsletter Area Start ===================== -->
     <div class="newsletter_area wow fadeInUp" data-wow-delay="0.2s">
         <div class="container">

@@ -1,0 +1,41 @@
+<div class="application">
+  <h1>MY APPLICATION</h1>
+
+  <h3>SECTION A: PERSONAL DATA </h3>
+
+  <p>Last Name: <%= @application.user.last_name %></p>
+  <p>First Name: <%= @application.user.first_name %></p>
+  <p>Middle Initial: <%= @application.user.middle_initial %></p>
+  <p>Email: <%= @application.user.email %></p>
+  <p>Phone Number: <%= @application.phone_number %></p>
+  <p>Street: <%= @application.street %></p>  
+  <p>City: <%= @application.city %></p>   
+  <p>State: <%= @application.state %></p>  
+  <p>Zip Code: <%= @application.zip_code %></p>  
+  <p>City: <%= @application.city %></p> 
+  <p>Country: <%= @application.country %></p> 
+  <p>Birth Place: <%= @application.birth_place %></p>
+  <p>Birth Date: <%= @application.pretty_date(@application.birth_date) %></p>
+  <p>Country of Citzenship: <%= @application.country_of_citizenship %></p>
+  <p>Occupation: <%= @application.occupation %></p>
+  <p>Name of Spouse: <%= @application.name_of_spouse %></p>
+  <p>Ages of Children: <%= @application.ages_of_children %></p>
+
+  <p><%= link_to 'Edit Personal Data', "/applications/#{@application.id}/edit"%></p>
+  <hr>
+
+  <h3>Other Application Sections</h3>
+  <p>Please double check all sections below to ensure that your application is accurate.</p>
+  <h4><a href="/applications/<%= @application.id %>/educations">B. Education</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/montessori_trainings">C. Montessori Trainings</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/work_experiences">D. Work Experience</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/references">E. References</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/documents">F. Documents</a></h4>
+  <hr>
+
+  <h3>Pay Application Fee and Submit Application</h3>
+  <p>I certify that the information I have given on the application is complete and correct. I
+understand my failure to provide complete, accurate and truthful information on the application
+will be grounds to deny or withdraw my admission or dismiss me after enrollment.</p>
+
+</div>
