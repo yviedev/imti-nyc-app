@@ -1,16 +1,15 @@
-<p>SECTION E: REFERENCES</p>
-<p>Click the + button to add additional documents.</p>
+<div class="application">
+  <h1>SECTION E: REFERENCES </h1>
+  <p>Please edit your references contacts below.</p>
 
-<%= form_for [@application, @reference], :url => {:action => "edit"} do |f| %>
-<p><%= f.label :name %></p>
-<p><%= f.text_field :name %></p>
-<p><%= f.label :address %></p>
-<p><%= f.text_field :address %></p>
-<p><%= f.label :position%></p>
-<p><%= f.text_field :position%></p>
-<p><%= f.submit :save %></p>
-<% end %>
+  <%= bootstrap_form_for [@application, @reference], :url => {:action => "update"} do |f| %>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.text_field :address %></p>
+  <p><%= f.text_field :position%></p>
+  <p><%= f.submit :save %></p>
+  <% end %>
 
-<p><%= link_to 'Back to all References', "/applications/#{@application.id}/references"%>
+  <p><%= link_to 'Cancel', "/applications/#{@application.id}/references"%>
+</div>
 
 

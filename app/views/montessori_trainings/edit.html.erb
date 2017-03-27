@@ -1,0 +1,15 @@
+<div class="application">
+  <h1>SECTION C: MONTESSORI TRAINING</h1>
+  <p>Please edit your previous montessori training experience below.</p>
+
+  <%= bootstrap_form_for [@application, @montessori_training], :url => {:action => "update"}  do |f| %>
+    <p><%= f.text_field :name %></p>
+    <p><%= f.text_field :location %></p>
+    <p><%= f.text_field :diploma %></p>
+    <p><%= f.text_field :degree %></p>
+    <p><%= f.text_field :degree_date %></p>
+    <p><%= f.submit :save %></p>
+  <% end %>
+
+  <p><%= link_to 'Cancel', "/applications/#{@application.id}/montessori_trainings"%>
+</div>

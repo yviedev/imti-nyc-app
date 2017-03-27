@@ -1,18 +1,22 @@
-<p>SECTION F: DOCUMENTS - Please attach your transcripts, recommendations and references below.</p>
-<p>Click the + button to add additional documents.</p>
-
-<% @documents.each do |document| %>
-  <p>Attachment url: <%= document.attachment %></p>
-  <p>Category: <%= document.category %></p>
-  <p><%= link_to 'Edit document', "/applications/#{@application.id}/documents/#{document.id}/edit"%>
+<div class="application">
+  <h1>SECTION F: DOCUMENTS</h1>
+  <p>Please see your attached transcripts, recommendations and/or references below.</p>
+  <p><a href="/applications/<%= @application.id %>/documents/new">Add new document</a></p>
   <hr>
-<% end %>
 
-<a href="/applications/<%= @application.id %>/documents/new">Add new document</a>
+  <% @documents.each do |document| %>
+    <p>Attachment name: <%= document.attachment %></p>
+    <p>Category: <%= document.category %></p>
+    <p><%= link_to 'Edit document', "/applications/#{@application.id}/documents/#{document.id}/edit"%>
+    <hr>
+  <% end %>
 
-<h1>Other Application Sections</h1>
-<p><a href="/applications/<%= @application.id %>/educations">Education</a></p>
-<p><a href="/applications/<%= @application.id %>/montessori_trainings">Montessori Trainings</a></p>
-<p><a href="/applications/<%= @application.id %>/work_experiences">Work Experience</a></p>
-<p><a href="/applications/<%= @application.id %>/references">References</a></p>
-<p><a href="/applications/<%= @application.id %>/documents">Documents</a></p>
+  <h3>Other Application Sections</h3>
+  <p>Please double check all sections below to ensure that your application is accurate.</p>
+  <h4><a href="/applications/<%= @application.id %>">A. My Personal Data, Pay Application Fee & Submit</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/educations">B. Education</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/montessori_trainings">C. Montessori Trainings</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/work_experiences">D. Work Experience</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/references">E. References</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/documents">F. Documents</a></h4>
+</div>

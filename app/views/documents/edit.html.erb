@@ -1,14 +1,14 @@
-<p>SECTION F: DOCUMENTS - Please attach your transcripts, recommendations and references below.</p>
-<p>Click the + button to add additional documents.</p>
+<div class="application">
+  <h1>SECTION F: DOCUMENTS</h1>
+  <p>Please edit your document below.</p>
 
-<%= form_for [@application, @document], :url => {:action => "edit"} do |f| %>
-<p><%= f.label :attachment, "Attachment url" %></p>
-<p><%= f.text_field :attachment %></p>
-<p><%= f.label :category %></p>
-<p><%= f.select :category, [['transcript'], ['recommendation'], ['resume']] %></p>
-<p><%= f.submit :save %></p>
-<% end %>
+  <%= bootstrap_form_for [@application, @document], :url => {:action => "update"} do |f| %>
+    <p><%= f.text_field :attachment %></p>
+    <p><%= f.select :category, [['transcript'], ['recommendation'], ['resume']] %></p>
+    <p><%= f.submit :save %></p>
+  <% end %>
 
-<p><%= link_to 'Back to all Documents', "/applications/#{@application.id}/documents"%>
+  <p><%= link_to 'Cancel', "/applications/#{@application.id}/documents"%>
+</div>
 
 

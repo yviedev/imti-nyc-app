@@ -14,7 +14,7 @@ class WorkExperiencesController < ApplicationController
     @work_experience = WorkExperience.new(work_experience_params)
     if @work_experience.save
       flash[:success] = "Work_Experience saved."
-      redirect_to new_application_reference_path(@application.id)
+      redirect_to application_work_experiences_path
     else
       flash[:danger] = @work_experience.errors.full_messages
       render :new
@@ -22,6 +22,7 @@ class WorkExperiencesController < ApplicationController
   end
 
   def edit
+    @application = Application.find(params[:application_id])
     @work_experience = WorkExperience.find(params[:id])
   end
 
@@ -29,7 +30,7 @@ class WorkExperiencesController < ApplicationController
     @work_experience = WorkExperience.find(params[:id])
     if @work_experience.update(work_experience_params)
       flash[:success] = "work_experience updated."
-      redirect_to edit_work_experience_path(@work_experience.id)
+      redirect_to application_work_experiences_path
     else
       flash[:danger] = @work_experience.errors.full_messages
       render :edit

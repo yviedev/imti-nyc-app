@@ -1,15 +1,14 @@
-<p>SECTION D: Work Experience </p>
+<div class="application">
+  <h1>SECTION D: WORK EXPERIENCE </h1>
+  <p>Please list your work experience below.</p>
 
-<%= form_for [@application, @work_experience] do |f| %>
-<%= f.label :employer %>
-<%= f.text_field :employer %>
-<%= f.label :occupation %>
-<%= f.text_field :occupation %>
-<%= f.label :start_date %>
-<%= f.text_field :start_date %>
-<%= f.label :end_date %>
-<%= f.text_field :end_date %>
-<%= f.submit :next %>
-<% end %>
+  <%= bootstrap_form_for [@application, @work_experience] do |f| %>
+  <p><%= f.text_field :employer %></p>
+  <p><%= f.text_field :occupation %></p>
+  <p><%= f.text_field :start_date %></p>
+  <p><%= f.text_field :end_date %></p>
+  <p><%= f.submit :save %></p>
+  <% end %>
 
-<!--<a href="/applications/<%= @application.id %>/work_experiences">Back to Work Experiences</a> -->
+  <p><%= link_to 'Cancel', "/applications/#{@application.id}/work_experiences"%>
+</div>

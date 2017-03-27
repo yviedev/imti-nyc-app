@@ -15,7 +15,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     if @document.save
       flash[:success] = "Document saved."
-      redirect_to new_application_montessori_training_path(@application.id)
+      redirect_to application_documents_path(@application.id)
     else
       flash[:danger] = @document.errors.full_messages
       render :new
@@ -31,7 +31,7 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
     if @document.update(document_params)
       flash[:success] = "Document updated."
-      redirect_to edit_document_path(@document.id)
+      redirect_to application_documents_path(@document.id)
     else
       flash[:danger] = @document.errors.full_messages
       render :edit

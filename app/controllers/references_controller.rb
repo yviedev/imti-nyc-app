@@ -14,7 +14,7 @@ class ReferencesController < ApplicationController
     @reference = Reference.new(reference_params)
     if @reference.save
       flash[:success] = "reference saved."
-      redirect_to new_application_montessori_training_path(@application.id)
+      redirect_to application_references_path
     else
       flash[:danger] = @reference.errors.full_messages
       render :new
@@ -30,7 +30,7 @@ class ReferencesController < ApplicationController
     @reference = Reference.find(params[:id])
     if @reference.update(reference_params)
       flash[:success] = "reference updated."
-      redirect_to edit_reference_path(@reference.id)
+      redirect_to application_references_path
     else
       flash[:danger] = @reference.errors.full_messages
       render :edit

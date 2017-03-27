@@ -14,7 +14,7 @@ class MontessoriTrainingsController < ApplicationController
     @montessori_training = MontessoriTraining.new(montessori_training_params)
     if @montessori_training.save
       flash[:success] = "Montessori training saved."
-      redirect_to new_application_work_experience_path(@application.id)
+      redirect_to application_montessori_trainings_path
     else
       flash[:danger] = @montessori_training.errors.full_messages
       render :new
@@ -22,6 +22,7 @@ class MontessoriTrainingsController < ApplicationController
   end
 
   def edit
+    @application = Application.find(params[:application_id])
     @montessori_training = MontessoriTraining.find(params[:id])
   end
 
@@ -29,7 +30,7 @@ class MontessoriTrainingsController < ApplicationController
     @montessori_training = MontessoriTraining.find(params[:id])
     if @montessori_training.update(montessori_training_params)
       flash[:success] = "Montessori training updated."
-      redirect_to edit_montessori_training_path(@montessori_training.id)
+      redirect_to application_montessori_trainings_path
     else
       flash[:danger] = @montessori_training.errors.full_messages
       render :edit

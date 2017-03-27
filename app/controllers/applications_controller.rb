@@ -1,4 +1,8 @@
 class ApplicationsController < ApplicationController
+  def index
+    @applications = Application.all
+  end
+    
   def new
     @application = Application.new
   end
@@ -8,7 +12,7 @@ class ApplicationsController < ApplicationController
     if current_user.update(user_params)
       if @application.save
         flash[:success] = "Application saved."
-        redirect_to  new_application_education_path(@application.id)
+        redirect_to  "/applications/#{@application.id}"
       else
         flash[:danger] = @application.errors.full_messages
         render :new
@@ -33,7 +37,7 @@ class ApplicationsController < ApplicationController
     if current_user.update(user_params)
       if @application.update(application_params)
         flash[:success] = "Application updated."
-        redirect_to edit_application_path(@application.id)
+        redirect_to "/applications/#{@application.id}"
       else
         flash[:danger] = @application.errors.full_messages
         render :edit

@@ -18,6 +18,21 @@
  *= require css/font-awesome.css
  *= require css/owl.carousel.css
  *= require css/et-line.css
- *= require_tree .
+ *= require rails_bootstrap_forms
  *= require_self
+ *= require_tree .
  */
+ 
+.application {
+  position: relative;
+  top: 150px;
+  padding-bottom: 200px;
+  max-height: 100%;
+  width: 50%;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.newsletter_area {
+  
+}
