@@ -1,12 +1,13 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :validate_params, only: :create
   after_action :set_school, only: :create
+  prepend_before_action :set_minimum_password_length, only: :new_school
 
   def new_school
     new
-  end 
+  end
 
-  private 
+  private
 
   def validate_params
     if URI(request.referer).path != User.role_params[params[:user][:role]]
