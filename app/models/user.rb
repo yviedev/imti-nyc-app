@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one :application
   belongs_to :local_school, optional: true
 
-  enum role: [:admin, :local_school_admin, :local_school_applicant, :domestic_applicant,
+  enum role: [:admin, :local_school_admin, :local_school_teacher, :domestic_applicant,
     :international_applicant, :current_teacher, :alumni, :member]
 
   def self.role_params
@@ -19,6 +19,10 @@ class User < ApplicationRecord
       alumni: '/sign_up',
       member: '/sign_up'
     }.with_indifferent_access
+  end
+
+  def local_school_user? 
+    local_school_admin? || local_school_teacher?
   end
 
 end

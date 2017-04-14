@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :middle_initial, :role])
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.local_school_user?
+      school_profiles_path
+    end 
+  end
 end
