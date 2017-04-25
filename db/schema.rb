@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413224218) do
+ActiveRecord::Schema.define(version: 20170425003011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,10 +52,13 @@ ActiveRecord::Schema.define(version: 20170413224218) do
 
   create_table "documents", force: :cascade do |t|
     t.integer  "application_id"
-    t.string   "attachment"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "category"
+    t.string   "attachment_file_name"
+    t.integer  "attachment_file_size"
+    t.string   "attachment_content_type"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "educations", force: :cascade do |t|
@@ -73,11 +76,8 @@ ActiveRecord::Schema.define(version: 20170413224218) do
   create_table "local_schools", force: :cascade do |t|
     t.integer  "code"
     t.string   "name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "principal_name"
-    t.string   "main_contact"
-    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "montessori_trainings", force: :cascade do |t|
