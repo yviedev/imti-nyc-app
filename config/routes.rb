@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, path: '', controllers: {registrations: 'users/registrations'}
-  as :user do 
+  as :user do
     get '/schools/sign_up', to: 'users/registrations#new_school'
-  end 
+    post '/users/registrations/new', to: 'users/registrations#import'
+  end
   root :to => 'pages#index'
   get "/about" => 'pages#about'
   get "/contact" => 'pages#contact'
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   	resources :montessori_trainings, only: [:index, :new, :create, :edit, :update]
   	resources :work_experiences, only: [:index, :new, :create, :edit, :update]
     resources :references, only: [:index, :new, :create, :edit, :update]
-  	resources :documents, only: [:index, :new, :create, :edit, :update] 
+  	resources :documents, only: [:index, :new, :create, :edit, :update]
   end
 
   resources :charges

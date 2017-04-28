@@ -61,4 +61,6 @@ class ApplicationsController < ApplicationController
     :ages_of_children).merge(user_id: current_user.id)
   end
 
+ 
+
 end

@@ -26,4 +26,11 @@
   <% end %>
 </div>
 
+<h1>Bulk Import</h1>
+<%= form_tag 'users/registrations/new', multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>
+<% end %>
+
+
 

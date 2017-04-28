@@ -24,4 +24,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     school = LocalSchool.create(name: params[:school_name])
     resource.update(local_school_id: school.id)
   end
+
+   def import
+    User.import(params[:file])
+    redirect_to root_url, notice: "Your import was succesful!"
+   end
+
+
 end

@@ -21,5 +21,21 @@ class User < ApplicationRecord
       member: '/sign_up'
     }.with_indifferent_access
   end
+  
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when ".csv" then Csv.new(file.path, nil, :ignore)
+    when ".xls" then Excel.new(file.path, nil, :ignore)
+    when "xlsx" then Excelx.new(file.path, nil, :ignore)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
 
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    spreadsheet.each(first_name: 'First Name', last_name: 'Last Name', email: 'E-mail', password: 'Password', password_confirmation: 'Password confirmation') do |hash|
+      User.new(first_name: hash[:first_name], last_name: hash[:last_name], email: hash[:email], password: hash[:password], password_confirmation: hash[:password_confirmation])
+      User.save
+    end
+  end
 end
