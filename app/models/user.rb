@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_one :application
   belongs_to :local_school, optional: true
   has_many :charges
- 
+  has_many :course_registrations
+  has_many :courses, through: :course_registrations
+
   # if role are changed (order or names), must update any code dealing with roles
   ROLES = [:admin, :local_school_admin, :local_school_applicant, :domestic_applicant,
     :international_applicant, :current_teacher, :alumni, :member]
