@@ -1,5 +1,6 @@
 class LocalSchoolsController < ApplicationController
   def index
+    @school = current_user.local_school
   end
 
   def new
