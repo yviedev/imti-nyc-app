@@ -59,7 +59,12 @@
                                     <h5>Address: <%= @school.school_address %></h5>
                                 </div>
                             </div>
-
+                            <div class="col-sm-6">
+                                <!-- About us single quote start -->
+                                <div class="single_special_service">
+                                    <h5><%= link_to "edit", "/local_schools/#{@school.id}/edit" %></h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
