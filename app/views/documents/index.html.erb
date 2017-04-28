@@ -5,7 +5,7 @@
   <hr>
 
   <% @documents.each do |document| %>
-    <p>Attachment name: <%= document.attachment %></p>
+    <p>Attachment name: <%= document.attachment_file_name %></p>
     <p>Category: <%= document.category %></p>
     <p><%= link_to 'Edit document', "/applications/#{@application.id}/documents/#{document.id}/edit"%>
     <hr>
