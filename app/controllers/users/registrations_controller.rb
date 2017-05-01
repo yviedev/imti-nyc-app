@@ -2,9 +2,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :validate_params, only: :create
   after_action :set_school, only: :create
   prepend_before_action :set_minimum_password_length, only: :new_school
+  require 'roo'
 
   def new_school
     new
+  end
+
+  def import
+    User.import(params[:file])
+    redirect_to root_url, notice: "Your import was succesful!"
   end
 
   private
@@ -24,4 +30,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
     school = LocalSchool.create(name: params[:school_name])
     resource.update(local_school_id: school.id)
   end
+
 end
