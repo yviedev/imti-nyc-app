@@ -1,5 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  PAPERCLIP_STORAGE_OPTIONS = { storage: :s3, 
+                                s3_credentials: Rails.application.secrets.s3_credentials,
+                                s3_permissions: :private
+                              }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
