@@ -50,7 +50,7 @@ class ApplicationsController < ApplicationController
 
   private
 
-  def user_params
+  def user_params #strong params - disables postman as a way to bypass the system
     params.require(:user).permit(:first_name, :last_name, :email, :middle_initial)
   end
 

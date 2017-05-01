@@ -2,8 +2,8 @@
   <h1>SECTION F: DOCUMENTS</h1>
   <p>Please attach your health form, personal essay, recommendation, resume, TOEFL report or transcript below.</p>
 
-  <%= bootstrap_form_for [@application, @document] do |f| %>
-    <p><%= f.text_field :attachment %></p>
+  <%= form_for [@application, @document] do |f| %>
+    <%= f.file_field :attachment %>
     <p><%= f.select :category, [['health form'], ['personal essay'], ['recommendation'], ['resume'], ['TOEFL score report'], ['transcript']] %></p>
     <p><%= f.submit :save %></p>
   <% end %>

@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_one :application
   belongs_to :local_school, optional: true
   has_many :charges
-  enum role: [:admin, :local_school_admin, :local_school_applicant, :domestic_applicant,
+
+  enum role: [:admin, :local_school_admin, :local_school_teacher, :domestic_applicant,
     :international_applicant, :current_teacher, :alumni, :member]
   require 'roo'
 
@@ -37,4 +38,9 @@ class User < ApplicationRecord
       User.create(first_name: row[0], last_name: row[1], email: ActionView::Base.full_sanitizer.sanitize(row[2]), password: row[3], password_confirmation: row[4])
     end
   end
+
+  def local_school_user? 
+    local_school_admin? || local_school_teacher?
+  end
+
 end
