@@ -1,0 +1,16 @@
+
+<%= form_tag "/local_schools/#{@school.id}", method: :patch do %>
+  <div>
+    Principal Name <input type="text" name="principal_name">
+  </div>
+  <div>
+    Contact<input type="text" name="contact_name">
+  </div>
+  <div>
+    Address<input type="text" name="school_address">
+  </div>
+  <div>
+    <input type="submit" name="submit">
+  </div>
+
+<% end %>

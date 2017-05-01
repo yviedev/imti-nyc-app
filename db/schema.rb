@@ -79,9 +79,12 @@ ActiveRecord::Schema.define(version: 20170425003011) do
     t.string   "name"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+
+    t.string   "school_logo"
+    t.string   "school_address"
     t.string   "principal_name"
     t.string   "main_contact"
-    t.string   "address"
+
   end
 
   create_table "montessori_trainings", force: :cascade do |t|

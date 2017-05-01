@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :references, only: [:index, :new, :create, :edit, :update]
   	resources :documents, only: [:index, :new, :create, :edit, :update]
   end
-  
+
   resources :school_profiles, only: [:index, :new, :create, :edit, :update] do
   end
 
