@@ -51,6 +51,7 @@
                     <%= f.password_field :password_confirmation, { :autocomplete => "off", :placeholder => "Password confirmation" } %>
                   </div>
                   <!-- Single Register input area start -->
+                  <%= f.hidden_field :role, value: "domestic_applicant" %>
                   <div class="actions">
                     <%= f.submit "Sign up", { :class => "btn btn-default", :id => "login_submit" } %>
                   </div>
