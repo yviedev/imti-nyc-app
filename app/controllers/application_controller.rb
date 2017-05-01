@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_user.local_school_admin?
+      local_schools_path
+    end
+    if current_user.local_school_admin?
       redirect_to local_schools_path
     end
   end
