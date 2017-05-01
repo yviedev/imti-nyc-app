@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_one :application
   belongs_to :local_school, optional: true
   has_many :charges
-
   enum role: [:admin, :local_school_admin, :local_school_applicant, :domestic_applicant,
     :international_applicant, :current_teacher, :alumni, :member]
+  require 'roo'
 
   def self.role_params
     {
@@ -24,18 +24,17 @@ class User < ApplicationRecord
   
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
-    when ".csv" then Csv.new(file.path, nil, :ignore)
-    when ".xls" then Excel.new(file.path, nil, :ignore)
-    when "xlsx" then Excelx.new(file.path, nil, :ignore)
+      when ".csv" then Roo::Csv.new(file.path)
+      when ".xls" then Roo::Excel.new(file.path)
+      when ".xlsx" then Roo::Excelx.new(file.path)
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
-    spreadsheet.each(first_name: 'First Name', last_name: 'Last Name', email: 'E-mail', password: 'Password', password_confirmation: 'Password confirmation') do |hash|
-      User.new(first_name: hash[:first_name], last_name: hash[:last_name], email: hash[:email], password: hash[:password], password_confirmation: hash[:password_confirmation])
-      User.save
+    spreadsheet.each do |row|
+      User.create(first_name: row[0], last_name: row[1], email: ActionView::Base.full_sanitizer.sanitize(row[2]), password: row[3], password_confirmation: row[4])
     end
   end
 end
