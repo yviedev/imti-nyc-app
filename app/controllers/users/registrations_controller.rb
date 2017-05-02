@@ -31,4 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.update(local_school_id: school.id)
   end
 
+  def after_sign_up_path_for(_)
+    applications_path
+  end
 end
