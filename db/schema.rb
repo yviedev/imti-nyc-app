@@ -10,13 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-=======
+ActiveRecord::Schema.define(version: 20170502000916) do
 
-ActiveRecord::Schema.define(version: 20170427225302) do
->>>>>>> 184686a3708a522b1b8387d31e87c47523f998f8
-
-ActiveRecord::Schema.define(version: 20170427225302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,12 +78,9 @@ ActiveRecord::Schema.define(version: 20170427225302) do
     t.string   "name"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "school_logo"
-    t.string   "school_address"
     t.string   "principal_name"
     t.string   "contact_name"
-    t.string   "main_contact"
-    t.string   "address"
+    t.string   "school_address"
   end
 
   create_table "montessori_trainings", force: :cascade do |t|
