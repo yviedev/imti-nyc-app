@@ -13,8 +13,5 @@ class ApplicationController < ActionController::Base
     if current_user.local_school_admin?
       local_schools_path
     end
-    if current_user.local_school_admin?
-      redirect_to local_schools_path
-    end
   end
 end
