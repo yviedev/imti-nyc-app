@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(version: 20170502004637) do
     t.string   "principal_name"
     t.string   "contact_name"
     t.string   "school_address"
+    t.text     "bio"
     t.string   "main_contact"
     t.string   "address"
-    t.text     "bio"
   end
 
   create_table "montessori_trainings", force: :cascade do |t|
