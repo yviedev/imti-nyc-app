@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 20170502004637) do
     t.text     "bio"
     t.string   "main_contact"
     t.string   "address"
-
   end
 
   create_table "montessori_trainings", force: :cascade do |t|
