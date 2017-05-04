@@ -18,7 +18,7 @@ class LocalSchoolsController < ApplicationController
     school.assign_attributes(principal_name: params[:principal_name], contact_name: params[:contact_name],
       # change contact_name to contact_number
       # add about attr to local_schools schema
-      school_address: params[:school_address])
+      school_address: params[:school_address], bio: params[:bio])
     school.save
     redirect_to "/local_schools"
   end
