@@ -1,0 +1,22 @@
+<div class="application">
+  <h1>SECTION F: DOCUMENTS</h1>
+  <p>Please see your attached transcripts, recommendations and/or references below.</p>
+  <p><a href="/applications/<%= @application.id %>/documents/new">Add new document</a></p>
+  <hr>
+
+  <% @documents.each do |document| %>
+    <p>Attachment name: <%= document.attachment_file_name %></p>
+    <p>Category: <%= document.category %></p>
+    <p><%= link_to 'Edit document', "/applications/#{@application.id}/documents/#{document.id}/edit"%>
+    <hr>
+  <% end %>
+
+  <h3>Other Application Sections</h3>
+  <p>Please double check all sections below to ensure that your application is accurate.</p>
+  <h4><a href="/applications/<%= @application.id %>">A. My Personal Data, Pay Application Fee & Submit</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/educations">B. Education</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/montessori_trainings">C. Montessori Trainings</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/work_experiences">D. Work Experience</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/references">E. References</a></h4>
+  <h4><a href="/applications/<%= @application.id %>/documents">F. Documents</a></h4>
+</div>

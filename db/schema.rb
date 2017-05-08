@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303005355) do
+ActiveRecord::Schema.define(version: 20170502004637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,43 @@ ActiveRecord::Schema.define(version: 20170303005355) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "charges", force: :cascade do |t|
+    t.string   "uid"
+    t.integer  "user_id"
+    t.decimal  "amount",      precision: 8, scale: 2
+    t.string   "customer_id"
+    t.string   "description"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "course_registrations", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.decimal  "price",       precision: 7, scale: 2
+    t.text     "description"
+    t.string   "lecturer"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
   create_table "documents", force: :cascade do |t|
     t.integer  "application_id"
-    t.string   "attachment"
-    t.string   "type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "category"
+    t.string   "attachment_file_name"
+    t.integer  "attachment_file_size"
+    t.string   "attachment_content_type"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "educations", force: :cascade do |t|
@@ -60,6 +91,16 @@ ActiveRecord::Schema.define(version: 20170303005355) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "local_schools", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "contact_name"
+    t.string   "school_address"
+    t.text     "bio"
+  end
+
   create_table "montessori_trainings", force: :cascade do |t|
     t.integer  "application_id"
     t.string   "name"
@@ -69,6 +110,16 @@ ActiveRecord::Schema.define(version: 20170303005355) do
     t.datetime "degree_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.boolean  "experience"
+  end
+
+  create_table "references", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "position"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "application_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,11 +139,12 @@ ActiveRecord::Schema.define(version: 20170303005355) do
     t.string   "unconfirmed_email"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
-    t.integer  "role_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "middle_initial"
     t.boolean  "donor"
+    t.integer  "role"
+    t.integer  "local_school_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

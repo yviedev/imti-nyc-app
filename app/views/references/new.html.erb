@@ -1,0 +1,13 @@
+<div class="application">
+  <h1>SECTION E: REFERENCES </h1>
+  <p>Please list the information for your references below.</p>
+
+  <%= bootstrap_form_for [@application, @reference] do |f| %>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.text_field :address %></p>
+  <p><%= f.text_field :position%></p>
+  <p><%= f.submit :save %></p>
+  <% end %>
+
+  <p><%= link_to 'Cancel', "/applications/#{@application.id}/references"%>
+</div>

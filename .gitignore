@@ -18,3 +18,7 @@
 
 # Ignore all those .DS_Store files, silly macs...
 .DS_Store
+
+# Ignore .env files
+.env
+/public/system

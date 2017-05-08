@@ -1,4 +1,8 @@
 class ApplicationsController < ApplicationController
+  def index
+    @application = current_user.application
+  end
+    
   def new
     @application = Application.new
   end
@@ -8,7 +12,7 @@ class ApplicationsController < ApplicationController
     if current_user.update(user_params)
       if @application.save
         flash[:success] = "Application saved."
-        redirect_to edit_application_path(@application.id)
+        redirect_to  "/applications/#{@application.id}"
       else
         flash[:danger] = @application.errors.full_messages
         render :new
@@ -17,6 +21,11 @@ class ApplicationsController < ApplicationController
       flash[:danger] = current_user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @application = Application.find(params[:id])
+    render :show
   end
 
   def edit
@@ -28,7 +37,7 @@ class ApplicationsController < ApplicationController
     if current_user.update(user_params)
       if @application.update(application_params)
         flash[:success] = "Application updated."
-        redirect_to edit_application_path(@application.id)
+        redirect_to "/applications/#{@application.id}"
       else
         flash[:danger] = @application.errors.full_messages
         render :edit
@@ -41,7 +50,7 @@ class ApplicationsController < ApplicationController
 
   private
 
-  def user_params
+  def user_params #strong params - disables postman as a way to bypass the system
     params.require(:user).permit(:first_name, :last_name, :email, :middle_initial)
   end
 
@@ -51,5 +60,7 @@ class ApplicationsController < ApplicationController
     :country_of_citizenship, :occupation, :name_of_spouse, 
     :ages_of_children).merge(user_id: current_user.id)
   end
+
+ 
 
 end

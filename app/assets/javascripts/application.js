@@ -10,8 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require bootstrap-sprockets
+//= require jquery2
 //= require jquery_ujs
-//= require turbolinks
+//= require js/bootstrap
+//= require js/jquery.nivoslider
+//= require js/nivoslider-active
+//= require js/owl.carousel.min
+//= require js/ajax-contact
+//= require js/coundown-timer
+//= require js/meanmenu
+//= require js/jquery.magnific-popup.min
+//= require js/jquery.waypoints.min
+//= require js/counterup.min
+//= require js/jquery.scrollUp
+//= require js/wow.min
+//= require js/custom
 //= require_tree .

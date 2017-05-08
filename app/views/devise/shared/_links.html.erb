@@ -1,13 +1,17 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <%= link_to '<i class="fa fa-user-plus" aria-hidden="true"></i> Already have a account? Login'.html_safe, new_session_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+	<div class="forget_pass one">
+	  <%= link_to '<i class="fa fa-question-circle" aria-hidden="true"></i>Forget Password'.html_safe, new_password_path(resource_name) %><br />
+  </div>
+<% end -%>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+	<div class="forget_pass" >
+	  <%= link_to '<i class="fa fa-user-plus" aria-hidden="true"></i>Didn\'t have a account? Register'.html_safe, new_registration_path(resource_name) %><br />
+  </div>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
